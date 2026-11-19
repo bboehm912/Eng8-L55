@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123a24">
+  <title>English 8 | Day 2: Digital Debrief &amp; Literary Analysis</title>
+  <style>
+    :root{--green:#15803d;--dark:#123a24;--light:#f0fdf4;--ink:#172b20;--muted:#52645a;--border:#cbd5e1;--bg:#f8fafc;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+    a{color:#166534;text-underline-offset:3px}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    :focus-visible{outline:3px solid #d99054;outline-offset:3px}
+    .shell{min-height:100vh;display:grid;grid-template-columns:220px minmax(0,1fr)}
+    aside{background:var(--dark);color:#e7eee1;padding:30px 22px;display:flex;flex-direction:column;gap:28px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-icon{display:grid;place-items:center;width:39px;height:39px;border:1px solid #839789;border-radius:50%;font:17px Georgia;color:#d8e8a4}
+    .brand strong,.brand small{display:block}
+    .brand strong{font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+    .brand small{font-size:10px;color:#a7b9a9;margin-top:5px}
+    .side-label,.kicker{font-size:10px;letter-spacing:.15em;font-weight:700;text-transform:uppercase}
+    .side-label{color:#a7b9a9}
+    .side-nav{display:grid;gap:8px}
+    .side-nav a{color:#d6e5d7;font-size:12px;line-height:1.4;text-decoration:none;padding:8px 10px;border-radius:6px}
+    .side-nav a:hover{background:#304d38}
+    .side-footer{margin-top:auto;border-top:1px solid #405249;padding-top:20px;font-size:11px;color:#c7d4c8;line-height:1.5}
+    main{min-width:0}
+    .topbar{border-bottom:1px solid #d5ded8;padding:22px 5%;font-size:11px;letter-spacing:.05em;color:#526158}
+    .wrap{max-width:1120px;margin:auto;padding:22px 5% 55px}
+    .header{background:#fff;border-top:5px solid var(--green);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .identity{display:flex;gap:18px;align-items:center}
+    .identity h1{font:700 22px 'Segoe UI',sans-serif;letter-spacing:0;margin:0 0 5px}
+    .identity p{font-size:13px;color:#475569;margin:0}
+    .school-logo{width:70px;height:70px;flex:none;display:grid;place-items:center}
+    .school-logo img{max-width:100%;max-height:100%;object-fit:contain}
+    .asset-placeholder{font-size:10px;line-height:1.3;text-align:center;color:#64748b}
+    .stamp{position:relative;width:110px;height:110px;flex:none;display:grid;place-items:center}
+    .stamp-photo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;object-fit:cover}
+    .stamp-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    .stamp.has-asset .asset-placeholder{position:absolute;bottom:-13px;background:#fff}
+    .stamp.has-both .asset-placeholder{display:none}
+    .panel{background:#fff;border-radius:12px;padding:clamp(22px,4vw,36px);box-shadow:0 4px 12px rgba(0,0,0,.05);margin-top:20px}
+    .hero{border-radius:10px;background:var(--dark);color:#f7fcf4;overflow:hidden;display:grid;grid-template-columns:1fr .75fr;min-height:320px;margin-top:20px}
+    .hero-copy{padding:clamp(28px,5vw,48px);align-self:center}
+    .hero h2{font:normal clamp(38px,5vw,62px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.04em;margin:0 0 15px}
+    .hero h2 em{color:#d8e8a4}
+    .hero p{color:#d4e4d3;max-width:550px;font-size:14px;line-height:1.65}
+    .hero-art{min-height:260px;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 50% 70%,#27553a,#123a24 70%)}
+    .hero-art svg{width:min(100%,440px);height:auto}
+    .hero-art .bridge-caption{color:#d4e4d3;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:center;margin:0}
+    .kicker{color:#678067;margin:0 0 13px}
+    h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:normal;letter-spacing:-.025em}
+    .panel>h2{font-size:clamp(28px,3.8vw,42px);line-height:1.1;margin:0 0 12px}
+    h3{font-size:22px;line-height:1.2;margin:0 0 10px}
+    p{line-height:1.65}
+    .intro{color:var(--muted);max-width:840px;font-size:14px}
+    .callout{background:var(--light);border-left:4px solid var(--green);padding:15px 18px;border-radius:6px;margin:18px 0}
+    .callout p:last-child{margin-bottom:0}
+    .text-source{font-size:11px;color:#647168}
+    .chapter-path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+    .chapter-card{background:#f8fafc;border:1px solid #dce5dd;border-top:3px solid var(--green);border-radius:8px;padding:14px}
+    .chapter-card span{display:block;color:#678067;font-size:10px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+    .chapter-card strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:normal;margin-bottom:6px}
+    .chapter-card p{font-size:12px;line-height:1.5;color:#4b5c51;margin:0}
+    .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+    .principle{background:#f8fafc;border:1px solid #dce5dd;border-radius:9px;padding:16px}
+    .principle strong{display:block;margin-bottom:5px;color:#166534;font-size:13px}
+    .principle p{margin:0;font-size:13px;color:#4b5c51}
+    .diagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+    figure{margin:0;background:#f8fafc;border:1px solid #dce5dd;border-radius:9px;padding:15px}
+    figure svg{display:block;width:100%;height:auto;max-height:210px}
+    figcaption{font-size:12px;color:#4b5c51;line-height:1.5;margin-top:10px}
+    .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .flow-card{background:#f8fafc;border:1px solid #dce5dd;border-radius:8px;padding:14px}
+    .flow-card strong{display:block;color:#166534;font-size:12px;margin-bottom:6px}
+    .flow-card span{font-size:12px;line-height:1.5;color:#4b5c51}
+    .field{margin:20px 0}
+    .field label,.field legend{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+    .field input[type="text"],.field input[type="number"],.field textarea{width:100%;padding:10px;border:1px solid #b7c8ba;border-radius:6px;background:#fff;color:#172b20}
+    .field input[type="number"]{max-width:240px}
+    .field textarea{min-height:82px;resize:vertical;line-height:1.5}
+    .field fieldset{border:0;padding:0;margin:0}
+    .radio-list{display:grid;gap:9px}
+    .radio-option{display:flex;align-items:flex-start;gap:9px;font-weight:normal!important;margin:0!important;color:#37483d}
+    .radio-option input{margin-top:4px;accent-color:var(--green)}
+    .rating{display:flex;gap:9px;flex-wrap:wrap}
+    .rating label{display:flex;align-items:center;gap:5px;background:#f8fafc;border:1px solid #dce5dd;border-radius:6px;padding:9px 12px;font-weight:normal}
+    .rating input{accent-color:var(--green)}
+    .help{font-size:12px;color:#647168;margin:6px 0 0}
+    .counter{font-size:11px;color:#647168;text-align:right;margin:4px 0}
+    .button{display:inline-block;background:var(--green);color:#fff;border:0;border-radius:6px;padding:12px 17px;font-size:13px;font-weight:700}
+    .button:hover{background:#166534}
+    .button.secondary{background:#fff;color:#166534;border:1px solid #90b69a}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .feedback{min-height:1.5em;margin:12px 0 0;font-size:14px;font-weight:600;color:#166534}
+    .feedback.error{color:#9a3412}
+    .privacy{font-size:12px;color:#52645a;background:#f8fafc;border:1px solid #dce5dd;border-radius:7px;padding:12px 14px}
+    [hidden]{display:none!important}
+    @media(max-width:850px){.shell{grid-template-columns:1fr}aside{padding:15px 20px;display:block}.side-nav,.side-footer{display:none}}
+    @media(max-width:850px){.chapter-path{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:650px){.wrap{padding:16px 16px 40px}.header{padding:14px}.identity{gap:10px}.identity h1{font-size:18px}.identity p{font-size:11px}.school-logo{width:52px;height:52px}.stamp{width:75px;height:75px}.stamp-photo{width:42px;height:42px}.hero{grid-template-columns:1fr}.hero-art{min-height:200px}.principles,.diagram-grid{grid-template-columns:1fr}.chapter-path,.flow{grid-template-columns:1fr}}
+    @media print{aside,.topbar,.actions{display:none!important}.shell{display:block}.wrap{padding:0}.panel,.header,.hero{box-shadow:none;break-inside:avoid}.hero{min-height:0}.hero-art{min-height:180px}.field textarea{min-height:55px}.panel{margin-top:12px}.privacy{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside aria-label="Course information">
+      <div class="brand"><div class="brand-icon" aria-hidden="true">C</div><div><strong>Chisholm</strong><small>Literature classroom</small></div></div>
+      <div class="side-nav"><p class="side-label">English 8 &middot; Day 2</p><a href="#anchor">A &nbsp; The Robinsons' Bridge</a><a href="#principles">B &nbsp; Structural Principles</a><a href="#checkpoint">C &nbsp; Student Checkpoint</a></div>
+      <div class="side-footer">Grade 8 &middot; English<br>Digital Debrief &amp; Literary Analysis</div>
+    </aside>
+    <main>
+      <div class="topbar">ENGLISH 8 &nbsp; / &nbsp; DAY 2 &nbsp; / &nbsp; <strong>DIGITAL DEBRIEF &amp; LITERARY ANALYSIS</strong></div>
+      <div class="wrap">
+        <!-- Put these branding files beside this HTML page in your repository. -->
+        <header class="header">
+          <div class="identity"><div class="school-logo" id="school-logo"><span class="asset-placeholder">School logo<br>not added</span></div><div><h1>English 8</h1><p>Day 2: Digital Debrief &amp; Literary Analysis</p></div></div>
+          <div class="stamp" id="instructor-stamp"><span class="asset-placeholder">Instructor photo<br>&amp; stamp not added</span></div>
+        </header>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy"><p class="kicker" style="color:#d8e8a4">Unit 3 &nbsp; / &nbsp; Literature meets design</p><h2 id="page-title">Build. Read.<br><em>Reflect.</em></h2><p>Connect your Day 1 bridge test to the Robinson family's ingenuity. Notice how structures carry weight—and how teams coordinate with the materials they have.</p></div>
+          <div class="hero-art">
+            <svg viewBox="0 0 440 250" role="img" aria-labelledby="hero-bridge-title hero-bridge-desc">
+              <title id="hero-bridge-title">A timber bridge over a stream</title>
+              <desc id="hero-bridge-desc">A simple bridge with a long beam, crossing planks and triangular braces spans a winding stream.</desc>
+              <path d="M8 205 Q75 177 135 205 T263 205 T432 197" fill="none" stroke="#6fa5ae" stroke-width="24" opacity=".8"/>
+              <path d="M8 220 Q75 192 135 220 T263 220 T432 212" fill="none" stroke="#a9d2cd" stroke-width="4" opacity=".8"/>
+              <path d="M45 138 L395 138" stroke="#d7bd85" stroke-width="17" stroke-linecap="round"/>
+              <path d="M78 132 L98 144 M125 132 L145 144 M172 132 L192 144 M219 132 L239 144 M266 132 L286 144 M313 132 L333 144 M360 132 L380 144" stroke="#f0d7a1" stroke-width="7" stroke-linecap="round"/>
+              <path d="M75 151 L114 207 L153 151 L192 207 L231 151 L270 207 L309 151 L348 207 L387 151" fill="none" stroke="#b6c4ac" stroke-width="9" stroke-linejoin="round"/>
+              <path d="M50 145 L33 194 L66 194Z M390 145 L373 194 L406 194Z" fill="#d8e8a4"/>
+              <path d="M225 45 L225 99" stroke="#f3c878" stroke-width="4" stroke-dasharray="7 7"/>
+              <path d="M214 94 L225 107 L236 94" fill="none" stroke="#f3c878" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="225" cy="111" r="8" fill="#f3c878"/>
+            </svg>
+            <p class="bridge-caption">Shared work &middot; balanced supports &middot; tested load</p>
+          </div>
+        </section>
+
+        <section class="panel" id="anchor" aria-labelledby="anchor-title">
+          <p class="kicker">Section A &nbsp; / &nbsp; The anchor text</p>
+          <h2 id="anchor-title">The Robinsons' Bridge</h2>
+          <p class="intro">In the bridge-building episode in Chapter 7 of your class edition, the Robinsons need a dependable crossing as they prepare to move their family and supplies. The father plans a bridge from long timber beams and shorter planks. Ropes, a pulley, and a beam acting as a lever help move the timber into position, while family members coordinate the work.</p>
+          <div class="callout"><strong>Key theme:</strong> Resourcefulness is more than having a clever idea. The bridge depends on choosing usable materials, placing supports, coordinating work, and checking whether the structure can carry a load.</div>
+          <div class="callout"><strong>Raft-to-bridge connection:</strong> Your Day 1 build explored how to make a structure float and carry a marble. Compare that challenge with the fixed crossing in Chapter 7: What does each design need to support, and how do its materials and supports meet that need?</div>
+          <p class="text-source">Use Chapters 4–7 and page numbers from your class edition. Chapter numbering and translation choices vary between editions.</p>
+          <div class="chapter-path" aria-label="Reading connections across Chapters 4 through 7">
+            <article class="chapter-card"><span>CHAPTER 4</span><strong>Notice the need</strong><p>What problem or goal is the family working toward? Identify one detail that reveals a constraint.</p></article>
+            <article class="chapter-card"><span>CHAPTER 5</span><strong>Track the resources</strong><p>What materials, tools, or knowledge can the family use? Find one example in the text.</p></article>
+            <article class="chapter-card"><span>CHAPTER 6</span><strong>Follow the teamwork</strong><p>Who contributes, and how do different tasks help the family move toward its goal?</p></article>
+            <article class="chapter-card"><span>CHAPTER 7</span><strong>Analyze the bridge</strong><p>How do the crossing's parts and the family's work address the problem? Connect one detail to a Day 1 design choice.</p></article>
+          </div>
+        </section>
+
+        <section class="panel" id="principles" aria-labelledby="principles-title">
+          <p class="kicker">Section B &nbsp; / &nbsp; Brief notes</p>
+          <h2 id="principles-title">Why do bridges bend?</h2>
+          <p class="intro">A simple bridge deck supported at two ends bends when a load presses down between them. The diagrams are simplified models: real structures depend on material, shape, joints, and how the load is applied.</p>
+          <div class="principles">
+            <div class="principle"><strong>1 &middot; A load makes a beam bend</strong><p>A marble pushes down on the span while the supports push up. The center often bends most when it is unsupported.</p></div>
+            <div class="principle"><strong>2 &middot; Top: compression</strong><p>As the beam curves downward, its upper fibers are squeezed closer together. This force is called compression.</p></div>
+            <div class="principle"><strong>3 &middot; Bottom: tension</strong><p>The lower fibers stretch as the beam bends. This pulling force is called tension.</p></div>
+            <div class="principle"><strong>4 &middot; Triangles help share forces</strong><p>A well-connected triangular truss can help distribute loads through its members. A flat sheet can still support weight; its performance depends on its material, thickness, folds, and supports.</p></div>
+          </div>
+          <div class="diagram-grid">
+            <figure>
+              <svg viewBox="0 0 440 210" role="img" aria-labelledby="beam-title beam-desc">
+                <title id="beam-title">A beam bending under a center load</title>
+                <desc id="beam-desc">A downward arrow presses on a beam between two supports. The top of the curved beam is marked compression; the bottom is marked tension.</desc>
+                <defs><marker id="arrow-down" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#b45309"/></marker></defs>
+                <path d="M55 92 Q220 157 385 92" fill="none" stroke="#166534" stroke-width="15" stroke-linecap="round"/>
+                <path d="M55 102 L40 131 L70 131Z M385 102 L370 131 L400 131Z" fill="#64748b"/>
+                <line x1="220" y1="27" x2="220" y2="68" stroke="#b45309" stroke-width="4" marker-end="url(#arrow-down)"/>
+                <text x="220" y="19" text-anchor="middle" fill="#7c2d12" font-size="15" font-family="Segoe UI, sans-serif">marble load</text>
+                <text x="220" y="113" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Segoe UI, sans-serif">beam</text>
+                <text x="92" y="72" fill="#9a3412" font-size="13" font-family="Segoe UI, sans-serif">top: compression</text>
+                <text x="103" y="178" fill="#166534" font-size="13" font-family="Segoe UI, sans-serif">bottom: tension</text>
+                <line x1="65" y1="147" x2="375" y2="147" stroke="#94a3b8" stroke-dasharray="5 5"/>
+              </svg>
+              <figcaption><strong>Beam model:</strong> a load bends the span; the top is compressed and the bottom is stretched.</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 440 210" role="img" aria-labelledby="shape-title shape-desc">
+                <title id="shape-title">Triangular supports and a flat sheet</title>
+                <desc id="shape-desc">The left drawing shows a supported bridge reinforced with triangles. The right drawing shows a flat span on two supports that may bend under a center load.</desc>
+                <text x="110" y="25" text-anchor="middle" fill="#166534" font-size="15" font-weight="700" font-family="Segoe UI, sans-serif">Triangular truss</text>
+                <text x="330" y="25" text-anchor="middle" fill="#166534" font-size="15" font-weight="700" font-family="Segoe UI, sans-serif">Flat span</text>
+                <line x1="32" y1="91" x2="188" y2="91" stroke="#166534" stroke-width="9"/>
+                <path d="M42 96L67 145L92 96L117 145L142 96L167 145L188 96M42 145H188" fill="none" stroke="#64816a" stroke-width="5"/>
+                <path d="M49 148L36 169H62ZM181 148L168 169H194Z" fill="#64748b"/>
+                <line x1="110" y1="45" x2="110" y2="75" stroke="#b45309" stroke-width="3" marker-end="url(#arrow-down)"/>
+                <line x1="252" y1="94" x2="408" y2="94" stroke="#166534" stroke-width="11" stroke-linecap="round"/>
+                <path d="M259 99L274 125L289 99L304 125L319 99L334 125L349 99L364 125L379 99L394 125" fill="none" stroke="#90a59a" stroke-width="2" stroke-dasharray="5 5"/>
+                <path d="M260 128L247 149H273ZM400 128L387 149H413Z" fill="#64748b"/>
+                <line x1="330" y1="45" x2="330" y2="77" stroke="#b45309" stroke-width="3" marker-end="url(#arrow-down)"/>
+                <text x="110" y="190" text-anchor="middle" fill="#475569" font-size="12" font-family="Segoe UI, sans-serif">triangles resist shape change</text>
+                <text x="330" y="190" text-anchor="middle" fill="#475569" font-size="12" font-family="Segoe UI, sans-serif">unsupported span can bend</text>
+              </svg>
+              <figcaption><strong>Compare shapes:</strong> triangles brace a frame; a flat sheet may need folds or supports to resist bending. Neither shape guarantees success on its own.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="panel" id="checkpoint" aria-labelledby="checkpoint-title">
+          <p class="kicker">Section C &nbsp; / &nbsp; Embedded checkpoint</p>
+          <h2 id="checkpoint-title">Day 1 Bridge Debrief</h2>
+          <p class="intro">Answer individually. Keep reflections specific, concise, and focused on what you can learn for the next build.</p>
+          <form id="checkpoint-form">
+            <div class="field"><label for="marble-reflection">1. Reflect on your one-marble test. Did your bridge support the marble? What did you notice?</label><textarea id="marble-reflection" name="marble-reflection" rows="2" maxlength="160" required aria-describedby="marble-help marble-count"></textarea><p class="help" id="marble-help">Describe the result in one sentence (160 characters maximum).</p><p class="counter" id="marble-count" aria-live="polite">0 / 160 characters</p></div>
+            <div class="field"><fieldset><legend>2. Which part of your design gave out first?</legend><div class="radio-list">
+              <label class="radio-option"><input type="radio" name="failure" value="span" required> The center span sagged or bent</label>
+              <label class="radio-option"><input type="radio" name="failure" value="anchors"> The tape anchors peeled off the desks</label>
+              <label class="radio-option"><input type="radio" name="failure" value="paper"> The paper tore under the weight</label>
+              <label class="radio-option"><input type="radio" name="failure" value="marble"> The marble rolled off the edge</label>
+              <label class="radio-option"><input type="radio" name="failure" value="other"> Other / no failure observed</label>
+            </div></fieldset></div>
+            <div class="field"><label for="teamwork">3. The Robinson family coordinated different tasks. How did your team's division of labor compare?</label><textarea id="teamwork" name="teamwork" rows="3" maxlength="260" required aria-describedby="teamwork-help teamwork-count"></textarea><p class="help" id="teamwork-help">Connect one specific example from your team to the family's teamwork. Maximum 2 sentences (260 characters).</p><p class="counter" id="teamwork-count" aria-live="polite">0 / 260 characters</p></div>
+            <div class="field"><fieldset><legend>4. When my team disagreed on how to build or tape the bridge, I kept an open mind and stayed calm.</legend><div class="rating" role="radiogroup" aria-label="Rate your response to disagreement from 1 to 5">
+              <label><input type="radio" name="open-mind" value="1" required> 1 <span class="help">Not at all</span></label>
+              <label><input type="radio" name="open-mind" value="2"> 2</label>
+              <label><input type="radio" name="open-mind" value="3"> 3</label>
+              <label><input type="radio" name="open-mind" value="4"> 4</label>
+              <label><input type="radio" name="open-mind" value="5"> 5 <span class="help">Consistently</span></label>
+            </div></fieldset></div>
+            <div class="field"><label for="accountability">5. Did your behavior make the build easier or harder for your group? Give one concrete example.</label><textarea id="accountability" name="accountability" rows="2" maxlength="160" required aria-describedby="accountability-help accountability-count"></textarea><p class="help" id="accountability-help">One sentence maximum (160 characters). Focus on an action and its effect.</p><p class="counter" id="accountability-count" aria-live="polite">0 / 160 characters</p></div>
+            <p class="privacy"><strong>About this form:</strong> This page does not send, save, or aggregate responses. To collect class results, move these questions into your school's approved Google or Microsoft Form and add its link or embed code here.</p>
+            <div class="actions"><button type="submit" class="button">Check my responses</button><button type="button" class="button secondary" id="print-button">Print checkpoint</button><button type="reset" class="button secondary">Clear answers</button></div>
+            <p id="form-feedback" class="feedback" aria-live="polite"></p>
+          </form>
+        </section>
+        <section class="panel" aria-labelledby="flow-title">
+          <p class="kicker">Suggested class flow &nbsp; / &nbsp; 45 minutes</p><h2 id="flow-title">Read. Debrief. Connect.</h2>
+          <div class="flow">
+            <div class="flow-card"><strong>10 min</strong><span>Independent reading of the notes and diagrams.</span></div>
+            <div class="flow-card"><strong>15 min</strong><span>Students complete the checkpoint individually.</span></div>
+            <div class="flow-card"><strong>15 min</strong><span>Teacher-led discussion of common failure points and self-ratings. Use aggregated results only if collected through an approved form platform.</span></div>
+            <div class="flow-card"><strong>5 min</strong><span>Wrap up: connect teamwork challenges to the Robinsons' survival mindset.</span></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    (() => {
+      function loadBrandImage(containerId, filename, alt, className) {
+        const container = document.getElementById(containerId);
+        const image = new Image();
+        image.className = className;
+        image.alt = alt;
+        image.addEventListener('load', () => {
+          container.append(image);
+          container.classList.add('has-asset');
+          if (containerId === 'school-logo') container.querySelector('.asset-placeholder').hidden = true;
+          if (container.querySelector('.stamp-photo') && container.querySelector('.stamp-svg')) container.classList.add('has-both');
+        });
+        image.addEventListener('error', () => console.warn('Branding asset not found:', filename));
+        image.src = filename;
+      }
+      loadBrandImage('school-logo', 'chisholm_logo.png', 'Chisholm school logo', '');
+      loadBrandImage('instructor-stamp', 'boehm_photo.jpg', 'Instructor photo', 'stamp-photo');
+      loadBrandImage('instructor-stamp', 'boehm-stamp.svg', 'Classroom stamp', 'stamp-svg');
+
+      const form = document.getElementById('checkpoint-form');
+      const feedback = document.getElementById('form-feedback');
+      const wordLimitFields = [
+        {id:'marble-reflection', counter:'marble-count', maxSentences:1, maxLength:160},
+        {id:'teamwork', counter:'teamwork-count', maxSentences:2, maxLength:260},
+        {id:'accountability', counter:'accountability-count', maxSentences:1, maxLength:160}
+      ];
+      wordLimitFields.forEach(field => {
+        const input = document.getElementById(field.id);
+        const counter = document.getElementById(field.counter);
+        input.addEventListener('input', () => {
+          counter.textContent = input.value.length + ' / ' + field.maxLength + ' characters';
+          if (input.value.length > field.maxLength) input.value = input.value.slice(0, field.maxLength);
+        });
+      });
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        feedback.classList.remove('error');
+        for (const field of wordLimitFields) {
+          const value = document.getElementById(field.id).value.trim();
+          const sentences = value.match(/[.!?]+(?:["')\]]*)?(?:\s+|$)/g) || (value ? [value] : []);
+          if (sentences.length > field.maxSentences) {
+            feedback.classList.add('error');
+            feedback.textContent = 'Please shorten the reflection to ' + field.maxSentences + (field.maxSentences === 1 ? ' sentence.' : ' sentences.') + ' Your response stays on this page and is not submitted.';
+            document.getElementById(field.id).focus();
+            return;
+          }
+        }
+        if (!form.reportValidity()) return;
+        feedback.textContent = 'Checkpoint complete. Your answers remain on this device only; this page does not submit or save them.';
+      });
+      form.addEventListener('reset', () => {
+        feedback.textContent = '';
+        feedback.classList.remove('error');
+        wordLimitFields.forEach(field => { document.getElementById(field.counter).textContent = '0 / ' + field.maxLength + ' characters'; });
+      });
+      document.getElementById('print-button').addEventListener('click', () => window.print());
+    })();
+  </script>
+</body>
+</html>
